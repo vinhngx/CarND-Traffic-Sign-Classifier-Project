@@ -4,11 +4,11 @@
 
 [//]: # (Image References)
 
-[image1]: ./web_examples/construction.jpg "Construction"
+[image1]: ./web_examples/construction.jpeg "Construction"
 [image2]: ./web_examples/kindergarten.jpeg "Kindergarten"
 [image3]: ./web_examples/noentry.jpg "No entry"
-[image4]: ./web_examples/speed_70.png "Speed limit 70"
-[image5]: ./web_examples/stop.png "Stop"
+[image4]: ./web_examples/speed_70.jpeg "Speed limit 70"
+[image5]: ./web_examples/stop.jpeg "Stop"
 
 
 **Build a Traffic Sign Recognition Project**
@@ -36,9 +36,13 @@ You're reading it! and here is a link to my [project code](https://github.com/vi
 #### 1. Provide a basic summary of the data set
 
 Number of training examples = 34799
+
 Number of validation examples = 4410
+
 Number of testing examples = 12630
+
 Image data shape = (32, 32)
+
 Number of classes = 43
 
 #### 2. Include an exploratory visualization of the dataset.
@@ -53,8 +57,6 @@ See  within [project code](https://github.com/vinhngx/CarND-Traffic-Sign-Classif
 A simple data normalization step is employed, where each images is scaled to the range [-1, 1]
 
 X_train_normalized = (X_train - 128.)/128
-X_test_normalized = (X_test - 128.)/128
-X_valid_normalized = (X_valid - 128.)/128
 
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
@@ -85,13 +87,21 @@ To train the model, I used an Adam optimizer with L2 regularization (weight 1e-4
 Training...
 
 EPOCH 1 Loss = 3.597 Validation loss: 3.140 Train Accuracy = 0.057 Validation Accuracy = 0.084
+
 EPOCH 2 Loss = 3.378 Validation loss: 2.958 Train Accuracy = 0.100 Validation Accuracy = 0.111
+
 EPOCH 3 Loss = 3.232 Validation loss: 2.876 Train Accuracy = 0.117 Validation Accuracy = 0.131
+
 ...
+
 EPOCH 498 Loss = 0.159 Validation loss: 0.115 Train Accuracy = 0.981 Validation Accuracy = 0.976
+
 EPOCH 499 Loss = 0.159 Validation loss: 0.117 Train Accuracy = 0.981 Validation Accuracy = 0.974
+
 EPOCH 500 Loss = 0.158 Validation loss: 0.109 Train Accuracy = 0.980 Validation Accuracy = 0.976
+
 Final model saved
+
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 My final model results were:
