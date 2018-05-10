@@ -126,7 +126,7 @@ Here are five German traffic signs that I found on the web:
 ![alt text][image1] ![alt text][image2] ![alt text][image3] 
 ![alt text][image4] ![alt text][image5]
 
-The 2nd and 3rd images might be difficult to classify because of large background areas not often seen in training images.
+These images are brighter than those seen in training images (which are extracted from videos).
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
