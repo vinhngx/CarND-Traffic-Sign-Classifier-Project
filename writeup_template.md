@@ -82,7 +82,7 @@ My final model consisted of the following layers:
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
-To train the model, I used an Adam optimizer with L2 regularization (weight 1e-4) with learning rate 1e-3. The network is trained until convergence for 500 epoch. During training, train and validation loss and accuracy is monitored. 
+To train the model, I used an Adam optimizer with L2 regularization (weight 1e-4) with learning rate 1e-3. The network is trained until convergence for 500 epoch. During training, train and validation loss and accuracy are monitored to ensure that no major overfitting is occuring, and that the model is converging well with the chosen learning rate. 
 
 Training...
 
