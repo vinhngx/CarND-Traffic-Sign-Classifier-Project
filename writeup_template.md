@@ -10,6 +10,8 @@
 [image4]: ./web_examples/speed_70.jpeg "Speed limit 70"
 [image5]: ./web_examples/stop.jpeg "Stop"
 
+[top-5-prob]: ./top-5-prob.png "Top 5 Probabilities"
+
 
 **Build a Traffic Sign Recognition Project**
 
@@ -54,9 +56,13 @@ See  within [project code](https://github.com/vinhngx/CarND-Traffic-Sign-Classif
 ### Design and Test a Model Architecture
 
 #### 1. Describe how you preprocessed the image data
-A simple data normalization step is employed, where each images is scaled to the range [-1, 1]
+A simple data standardization step is employed, where each images is scaled to the range [-1, 1]
 
 X_train_normalized = (X_train - 128.)/128
+
+This is a quick way to standardization the image to have approximately zero mean and unit variance distribution. Standardizing the data should help to condition the optimization problem and facilitate the optimization process. Also, it puts quantities, such as the learning rate, into a scale perspective.  
+
+Since the model has archieved a good converged accuracy, we have not tested data augmentation herein.
 
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
@@ -82,7 +88,18 @@ My final model consisted of the following layers:
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
+<<<<<<< Updated upstream
 To train the model, I used an Adam optimizer with L2 regularization (weight 1e-4) with learning rate 1e-3. The network is trained until convergence for 500 epoch. During training, train and validation loss and accuracy are monitored to ensure that no major overfitting is occuring, and that the model is converging well with the chosen learning rate. 
+=======
+To train the model, I used an Adam optimizer with L2 regularization (weight 1e-4) with learning rate 1e-3. The Adam optimizer was chosen, since it can automatically adapt the effective learning rate, and thus serves as an excellent tool for quick model exploration. 
+
+The L2 regularization parameter was chosen empirically from 1e-2, 1e-3, 1e-4 based on the validation set. We notice larger values of the L2 penalty to be too strong and prevent the model from learning. 
+
+We chose a batchsize of 1024 to improve GPU efficiency. GPUs are best at processing large batches of data. Larger batches also help to smooth the gradient approximation, thus a larger learning rate can potentially be applied.
+
+The network is trained until convergence for 500 epoch. During training, train and validation loss and accuracy is monitored to ensure the traning is progressing well and no anomaly occurs. We notice that after 300 epoch, although the improvement in accuracy has slowed down, prolonging the training can still be benefical if an absolutely best model is sought after.   
+
+>>>>>>> Stashed changes
 
 Training...
 
@@ -140,12 +157,13 @@ Here are the results of the prediction:
 | 70 km/h	      		| 70 km/h					 				|
 | No entry		| No entry     							|
 
+![alt text][image4]
 
 The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set.
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-The top five soft max probabilities were
+The top-1 and top-5 soft max probabilities are detailed in the table and figure below:
 
 | Probability			        |     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
@@ -154,6 +172,8 @@ The top five soft max probabilities were
 | 87.29%				| Speed limit 30											|
 | 100%      		| 70 km/h					 				|
 | 100%	| No entry     							|
+
+![top-5-prob][top-5-prob]
 
 For the 3rd image, the correct label comes the 2nd highest amongst the top 5 predictions.
 
